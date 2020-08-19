@@ -6,6 +6,7 @@ import squarify from './squarify';
 
 var defaults = Chart.defaults;
 var helpers = Chart.helpers;
+var color = Chart.helpers.color;
 var optionHelpers = helpers.options;
 var parseFont = optionHelpers._parseFont;
 var resolve = optionHelpers.resolve;
