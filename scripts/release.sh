@@ -2,10 +2,10 @@
 
 set -e
 
-if [[ ! "$TRAVIS_BRANCH" =~ ^release/.*$ ]]; then
-    echo "Skipping release because this is not a 'release/*' branch"
-    exit 0
-fi
+#if [[ ! "$TRAVIS_BRANCH" =~ ^release/.*$ ]]; then
+#    echo "Skipping release because this is not a 'release/*' branch"
+#    exit 0
+#fi
 
 # Travis executes this script from the repository root, so at the same level than package.json
 VERSION=$(node -p -e "require('./package.json').version")
@@ -17,9 +17,9 @@ if [ "$GITTAG" != "" ]; then
     exit 1
 fi
 
-git remote add auth-origin https://$GITHUB_AUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
-git config --global user.email "$GITHUB_AUTH_EMAIL"
-git config --global user.name "kurkle"
+#git remote add auth-origin https://github.com/idoshr/chartjs-chart-treemap.git
+git config --global user.email "idoshraga@gmail.com"
+git config --global user.name "idoshr"
 git checkout --detach --quiet
 git add -f dist/*.js bower.json
 git commit -m "Release $VERSION"
